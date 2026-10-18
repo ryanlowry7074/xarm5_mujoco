@@ -7,7 +7,8 @@
     <mesh name="link2" content_type="model/stl" file="visual/link2.stl"/>
     <mesh name="link3" content_type="model/stl" file="visual/link3.stl"/>
     <mesh name="link4" content_type="model/stl" file="visual/link4.stl"/>
-    <mesh name="end_tool" content_type="model/stl" file="../meshes/end_tool/collision/end_tool.stl"/>
+    <mesh name="end_tool" content_type="model/stl" file="end_tool/collision/end_tool.stl"/>
+	<mesh name="enclosure" content_type="model/stl" file="MockEnclosureWith651R2.stl" scale="0.001 0.001 0.001"/>
   </asset>
 
   <worldbody>
@@ -32,10 +33,19 @@
               <inertial pos="0 -0.00677 -0.01098" quat="0.487612 0.512088 -0.512088 0.487612" mass="0.17" diaginertia="0.000132176 9.3e-05 5.85236e-05"/>
               <joint name="joint5" range="-6.28319 6.28319" actuatorfrcrange="-20 20" damping="3" frictionloss="1"/>
               <geom quat="1 0 0 0" type="mesh" rgba="0.753 0.753 0.753 1" mesh="end_tool"/>
+              <site name="tcp" pos="0 0 0" size="0.01" rgba="1 0 0 1"/>
             </body>
           </body>
         </body>
       </body>
     </body>
+	<geom name="enclosure" type="mesh" mesh="enclosure" pos="0 0 0" rgba="0.2 0.2 0.8 1" contype="0" conaffinity="0"/>
   </worldbody>
+  <actuator>
+    <position name="joint1" joint="joint1" kp="2000" kv="100"/>
+    <position name="joint2" joint="joint2" kp="2000" kv="100"/>
+    <position name="joint3" joint="joint3" kp="2000" kv="100"/>
+    <position name="joint4" joint="joint4" kp="2000" kv="100"/>
+    <position name="joint5" joint="joint5" kp="2000" kv="100"/>
+  </actuator>
 </mujoco>
